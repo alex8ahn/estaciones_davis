@@ -4,15 +4,14 @@ import ftplib
 
 with ftplib.FTP('201.220.136.101') as ftp:
     
-    csv = 'datos.csv'
-    db = 'weewx.sdb'
+    filename = '/var/lib/weewx/weewx.sdb'
     
     try:    
         ftp.login('davis', 'cenaoscopeco2021')  
         
         with open(csv, db, 'rb') as fp:
             
-            res = ftp.storlines("STOR " + csv + db, fp)
+            res = ftp.storlines("STOR " + filename, fp)
             
             if not res.startswith('226 Transfer OK'):
                 
