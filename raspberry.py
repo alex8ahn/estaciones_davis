@@ -11,7 +11,7 @@ def fahr_to_celsius(temp_fahr):
     temp_celsius = (temp_fahr - 32) * 5 / 9
     return temp_celsius
 
-con = sqlite3.connect('weewx.sdb')
+con = sqlite3.connect('/var/lib/weewx/weewx.sdb')
 
 df = pd.read_sql_query('SELECT rain, intemp, outtemp, datetime from archive order by datetime', con)
 
