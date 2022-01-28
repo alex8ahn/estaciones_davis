@@ -1,7 +1,6 @@
 import sqlite3
 import pandas as pd
 import datetime
-import matplotlib.pyplot as plt
 
 
 def fahr_to_celsius(temp_fahr):
@@ -13,7 +12,7 @@ def fahr_to_celsius(temp_fahr):
 
 con = sqlite3.connect('/var/lib/weewx/weewx.sdb')
 
-df = pd.read_sql_query('SELECT rain, intemp, outtemp, datetime from archive order by datetime', con)
+df = pd.read_sql_query('SELECT rain, inTemp, outTemp, datetime from archive order by datetime', con)
 
 df["dateTime"] = pd.to_datetime(df['dateTime'], unit="s", utc=True, ).dt.tz_convert('America/Costa_Rica')
 
