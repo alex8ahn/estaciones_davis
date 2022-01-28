@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
 import ftplib 
+import os
 
 with ftplib.FTP('201.220.136.101') as ftp:
     
-    filename = '/var/lib/weewx/weewx.sdb'
+    filename = os.path.dirname('/var/lib/weewx/weewx.sdb')
     
     try:    
         ftp.login('davis', 'cenaoscopeco2021')  
