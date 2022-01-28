@@ -9,7 +9,7 @@ with ftplib.FTP('201.220.136.101') as ftp:
     try:    
         ftp.login('davis', 'cenaoscopeco2021')  
         
-        with open(csv, db, 'rb') as fp:
+        with open(filename, 'rb') as fp:
             
             res = ftp.storlines("STOR " + filename, fp)
             
