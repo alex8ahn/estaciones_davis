@@ -5,12 +5,13 @@ import os
 
 with ftplib.FTP('201.220.136.101') as ftp:
     
-    filename = os.path.dirname('/var/lib/weewx/weewx.sdb')
+    path = os.path.dirname('/var/lib/weewx/')
+    filename = 'weewx.sdb'
     
     try:    
         ftp.login('davis', 'cenaoscopeco2021')  
         
-        with open(filename, 'rb') as fp:
+        with open(fpath + ilename, 'rb') as fp:
             
             res = ftp.storlines("STOR " + filename, fp)
             
