@@ -10,7 +10,7 @@ with ftplib.FTP('201.220.136.101') as ftp:
         ftp.login('davis', 'cenaoscopeco2021')  
         
         with open(filename, 'rb') as fp:
-            ftp.cwd("C:\raspberry\estacion_davis02")
+            ftp.cwd("estacion_davis02")
             
             res = ftp.storlines("STOR " + filename, fp)
             
