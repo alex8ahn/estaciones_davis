@@ -16,7 +16,7 @@ def bar_in_to_hPa(bar_in):
     bar_hPa = bar_in * 33.8638
     return bar_hPa
     
-con = sqlite3.connect('/var/lib/weewx/weewx.sdb')
+con = sqlite3.connect('/home/weewx/archive/weewx.sdb')
 
 df = pd.read_sql_query('SELECT rain, inTemp, outTemp, barometer, windDir, windSpeed, datetime from archive order by datetime', con)
 
