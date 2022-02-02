@@ -18,7 +18,7 @@ def bar_in_to_hPa(bar_in):
     
 con = sqlite3.connect('/var/lib/weewx/weewx.sdb')
 
-df = pd.read_sql_query('SELECT rain, inTemp, outTemp, barometer, windDir, windSpeed, datetime from archive order by datetime', con)
+df = pd.read_sql_query('SELECT rain, inTemp, outTemp, barometer, windDir, windSpeed, dewpoint, inHumidity, outHumidity, datetime from archive order by datetime', con)
 
 df["dateTime"] = pd.to_datetime(df['dateTime'], unit="s", utc=True, ).dt.tz_convert('America/Costa_Rica')
 
@@ -28,7 +28,7 @@ df["outTemp"] = fahr_to_celsius(df["outTemp"])
 
 df["barometer"] = bar_in_to_hPa(df["barometer"]) 
 
-df = df.round({'rain': 2, 'inTemp': 2, 'outTemp': 2, 'barometer': 2, 'windDir': 2, 'windSpeed': 2})
+df = df.round({'rain': 2, 'inTemp': 2, 'outTemp': 2, 'barometer': 2, 'windDir': 2, 'windSpeed': 2, 'dewpoint': 2})
 
 df.to_csv('datos.csv', index=False)
 
