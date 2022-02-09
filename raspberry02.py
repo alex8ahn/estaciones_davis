@@ -22,13 +22,11 @@ df = pd.read_sql_query('SELECT rain, outTemp, barometer, windDir, windSpeed, dew
 
 df["dateTime"] = pd.to_datetime(df['dateTime'], unit="s", utc=True, ).dt.tz_convert('America/Costa_Rica')
 
-df["inTemp"] = fahr_to_celsius(df["inTemp"])
-
 df["outTemp"] = fahr_to_celsius(df["outTemp"])
 
 df["barometer"] = bar_in_to_hPa(df["barometer"])
 
-df = df.round({'rain': 2, 'inTemp': 2, 'outTemp': 2, 'barometer': 2, 'windDir': 2, 'windSpeed': 2, 'dewpoint': 2, 'inHumidity': 2, 'outHumidity': 2})
+df = df.round({'rain': 2, 'outTemp': 2, 'barometer': 2, 'windDir': 2, 'windSpeed': 2, 'dewpoint': 2, 'inHumidity': 2, 'outHumidity': 2})
 
 df.to_csv('datos.csv', index=False)
 
