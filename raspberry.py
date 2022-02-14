@@ -25,6 +25,8 @@ df["dateTime"] = pd.to_datetime(df['dateTime'], unit="s", utc=True, ).dt.tz_conv
 
 df["outTemp"] = fahr_to_celsius(df["outTemp"])
 
+df["dewpoint"] = fahr_to_celsius(df["dewpoint"])
+
 df["barometer"] = bar_in_to_hPa(df["barometer"])
 
 df = df.round({'rain': 2, 'inTemp': 2, 'outTemp': 2, 'barometer': 2, 'windDir': 2, 'windSpeed': 2, 'dewpoint': 2, 'inHumidity': 2})
