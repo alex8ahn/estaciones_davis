@@ -7,8 +7,8 @@ with ftplib.FTP('201.220.136.101') as ftp:
     try:
         ftp.login('davis', 'cenaoscopeco2021')
 
-        ftp.cwd("C:\raspberry\DAPRUEBA")
-        
+        ftp.cwd("DAPRUEBA")
+
         with open(filename, 'rb') as fp:
 
 
